@@ -11,6 +11,7 @@ import {
   ProjectContainer,
   PaginationButton,
   PaginationTabs,
+  NewTag,
 } from "./Projects-Style";
 
 import { Button } from "../Style-Button";
@@ -60,11 +61,14 @@ export function Projects() {
       <Title>Projetos</Title>
       <Section>
         <ProjectsGrid>
-          {projectsToRender.map((project) => (
-            <Card key={project.id}>
+          {projectsToRender.map((project, index) => (
+            <Card key={project.id} featured={index === 0}>
+              {index === 0 && <NewTag>NEW</NewTag>}
+
               <CardImage src={project.image} alt={project.title} />
               <CardTitle>{project.title}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
+
               <Button
                 small
                 href={project.link}

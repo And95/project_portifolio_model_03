@@ -65,21 +65,87 @@ export const ProjectsGrid = styled.div`
 `;
 
 export const Card = styled.div`
+  position: relative;
   background: #0f1c2e;
   padding: ${pxToRem(16)};
-  border: 3px solid rgba(137, 137, 137, 0.97);
   border-radius: ${pxToRem(20)} 0 ${pxToRem(20)} 0;
-  box-shadow: 0 ${pxToRem(10)} ${pxToRem(30)} rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+
+  border: ${({ featured }) =>
+    featured ? "2px solid transparent" : "3px solid rgba(137,137,137,0.97)"};
+
+  box-shadow: ${({ featured }) =>
+    featured ? "0 0 20px rgba(0,255,255,.25)" : "0 10px 30px rgba(0,0,0,.6)"};
+
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 ${pxToRem(15)} ${pxToRem(40)} rgba(0, 0, 0, 0.8);
   }
 
-  ${media.tablet`
-    padding: ${pxToRem(20)};
-  `}
+  ${({ featured }) =>
+    featured &&
+    `
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(
+          90deg,
+          #00ffff,
+          #7b61ff,
+          #00ffff
+        );
+        background-size: 300% 300%;
+        animation: neonBorder 4s linear infinite;
+        z-index: 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: #0f1c2e;
+        border-radius: ${pxToRem(18)} 0 ${pxToRem(18)} 0;
+        z-index: 1;
+      }
+
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+    `}
+
+  @keyframes neonBorder {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+`;
+
+export const NewTag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #00ffff, #7b61ff);
+
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+
+  z-index: 3;
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.7),
+    0 0 20px rgba(123, 97, 255, 0.5);
 `;
 
 export const CardImage = styled.img`
