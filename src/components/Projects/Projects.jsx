@@ -61,8 +61,8 @@ export function Projects() {
       <Title>Projetos</Title>
       <Section>
         <ProjectsGrid>
-          {projectsToRender.map((project, index) => (
-            <Card key={project.id} featured={index === 0}>
+          {projectsToRender.map((project) => (
+            <Card key={project.id} featured={project.id === 1}>
               {project.id === 1 && <NewTag>NEW</NewTag>}
 
               <CardImage src={project.image} alt={project.title} />
