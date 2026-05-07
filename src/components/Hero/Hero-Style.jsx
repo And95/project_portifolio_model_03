@@ -12,8 +12,8 @@ export const HeroContainer = styled.section`
   gap: ${pxToRem(32)};
 
   background-image: url(${heroBg});
-  background-size: cover;
-  background-position: center;
+  background-size: 100% auto;
+  background-position: top center;
   background-repeat: no-repeat;
 
   padding: ${pxToRem(120)} ${pxToRem(16)};
