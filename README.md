@@ -10,6 +10,7 @@ https://portifoliobyandreg.vercel.app
 
 - React
 - Vite
+- Chart.js
 
 ## 👨‍💻 Author
 
