@@ -1,11 +1,16 @@
-# React + Vite
+# Portfolio Model 03
 
-## project_portifolio_model_03
+Modern portfolio developed with React and Vite.
 
-Reference: RID195499_desafio04 (Template 2)
+## 🚀 Live Demo
 
-Project Portfólio - André Gonzaga 
+https://portifoliobyandreg.vercel.app
 
-Link: https://portifoliobyandreg.vercel.app
+## 🛠️ Technologies
 
-Obs.: Para fins demonstrativos(vercel.com).
+- React
+- Vite
+
+## 👨‍💻 Author
+
+André Gonzaga
