@@ -12,7 +12,7 @@ export function Hero() {
       </Title>
       <Paragraph>
         Desenvolvedor Full-stack focado em criar aplicações web modernas,
-        performáticas e escaláveis utilizando React, TypeScript e Node.js.
+        performáticas e escaláveis utilizando JavaScript, TypeScript, React, Next.js, Node.js e NestJS.
       </Paragraph>
       <Button
         as="a"
