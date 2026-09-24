@@ -3,7 +3,7 @@ import { Button } from "../Style-Button";
 
 export function Hero() {
   return (
-    <HeroContainer id="technologies">
+    <HeroContainer>
       <Title>
         {" "}
         Olá, eu sou <Name>André Gonzaga</Name>
@@ -12,7 +12,8 @@ export function Hero() {
       </Title>
       <Paragraph>
         Desenvolvedor Full-stack focado em criar aplicações web modernas,
-        performáticas e escaláveis utilizando JavaScript, TypeScript, React, Next.js, Node.js e NestJS.
+        performáticas e escaláveis utilizando JavaScript, TypeScript, React,
+        Next.js, Node.js e NestJS.
       </Paragraph>
       <Button
         as="a"

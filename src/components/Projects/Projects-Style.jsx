@@ -18,7 +18,6 @@ export const ProjectContainer = styled.section`
   `}
 `;
 
-//scroll-margin-top: ${pxToRem(20)};
 export const Section = styled.section`
   background: #0b1728;
 
@@ -47,7 +46,6 @@ export const Title = styled.h2`
   `}
 `;
 
-//grid-template-columns: repeat(auto-fit, minmax(${pxToRem(260)}, 1fr));
 export const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -169,6 +167,18 @@ export const CardDescription = styled.p`
   font-size: ${pxToRem(14)};
   line-height: 1.6;
   margin-bottom: ${pxToRem(20)};
+`;
+
+export const ProjectButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: ${pxToRem(12)};
+
+  @media (min-width: 1441px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const PaginationTabs = styled.div`

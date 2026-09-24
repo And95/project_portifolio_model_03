@@ -1,5 +1,3 @@
-// import mockPageWeb from "../../assets/mock-page-web.png";
-
 import {
   project1,
   project2,
@@ -20,44 +18,37 @@ const ProjectsData = [
   },
   {
     id: 2,
-    title: "Project Sales Dashboard",
+    title: "Project ONG SJPA",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
+      "Aplicação web completa com área pública e painel administrativo, desenvolvida para a Sociedade Juizforense de Proteção aos Animais e ao Meio Ambiente.",
     image: project2,
-    link: "https://pj-salesdashboardbyag.vercel.app/cadastro",
+    link: "https://projectongsjpa.vercel.app",
+    adminLink: "https://projectongsjpa.vercel.app/admin/login",
   },
   {
     id: 3,
-    title: "Project Architecture",
+    title: "Project Sales Dashboard",
     description:
       "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
     image: project3,
-    link: "https://pj-architecturebyag.vercel.app",
+    link: "https://pj-salesdashboardbyag.vercel.app/cadastro",
   },
   {
     id: 4,
-    title: "Project Bikcraft",
+    title: "Project Architecture",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Origamid.",
+      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
     image: project4,
-    link: "https://pj-bikcraftorigamidbyag.vercel.app",
+    link: "https://pj-architecturebyag.vercel.app",
   },
   {
     id: 5,
-    title: "Project Responsive",
+    title: "Project Bikcraft",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
+      "Projeto desenvolvido com base no design proposto pelo curso da Origamid.",
     image: project5,
-    link: "https://pj-responsivenesscoursebyag.netlify.app",
+    link: "https://pj-bikcraftorigamidbyag.vercel.app",
   },
-  // {
-  //   id: 5,
-  //   title: "Project Blog Responsivo",
-  //   description:
-  //     "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
-  //   image: project5,
-  //   link: "https://pj-blogresponsivobyag.netlify.app",
-  // },
   {
     id: 6,
     title: "Project Task Manager",

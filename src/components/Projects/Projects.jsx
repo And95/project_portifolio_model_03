@@ -12,6 +12,7 @@ import {
   PaginationButton,
   PaginationTabs,
   NewTag,
+  ProjectButtons,
 } from "./Projects-Style";
 
 import { Button } from "../Style-Button";
@@ -59,25 +60,39 @@ export function Projects() {
   return (
     <ProjectContainer id="projects">
       <Title>Projetos</Title>
+
       <Section>
         <ProjectsGrid>
           {projectsToRender.map((project) => (
-            <Card key={project.id} featured={project.id === 1}>
-              {project.id === 1 && <NewTag>NEW</NewTag>}
+            <Card key={project.id} featured={project.id <= 2}>
+              {project.id <= 2 && <NewTag>NEW</NewTag>}
 
               <CardImage src={project.image} alt={project.title} />
               <CardTitle>{project.title}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
+              <ProjectButtons>
+                <Button
+                  small
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Abrir projeto ${project.title} em nova aba`}
+                >
+                  Clique aqui
+                </Button>
 
-              <Button
-                small
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Abrir projeto ${project.title} em nova aba`}
-              >
-                Clique aqui
-              </Button>
+                {project.adminLink && (
+                  <Button
+                    small
+                    href={project.adminLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Abrir área administrativa ${project.title} em nova aba`}
+                  >
+                    Administrativo
+                  </Button>
+                )}
+              </ProjectButtons>
             </Card>
           ))}
         </ProjectsGrid>

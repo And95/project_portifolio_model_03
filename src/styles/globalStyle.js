@@ -31,4 +31,4 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         align-items: center;
     }
-`
+`;

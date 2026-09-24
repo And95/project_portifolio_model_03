@@ -11,6 +11,7 @@ import {
   DesktopIcons,
   NavLink,
 } from "./Header-Style";
+
 import {
   HamburgerButton,
   MobileMenu,
@@ -33,8 +34,13 @@ export function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen((current) => !current);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <>
@@ -55,9 +61,11 @@ export function Header() {
               <li>
                 <NavLink href="#projects">Projetos</NavLink>
               </li>
+
               <li>
                 <NavLink href="#technologies">Tecnologias</NavLink>
               </li>
+
               <li>
                 <NavLink href="#about">Sobre mim</NavLink>
               </li>
@@ -97,12 +105,15 @@ export function Header() {
             <NavLink href="#projects" onClick={closeMenu}>
               Projetos
             </NavLink>
+
             <NavLink href="#technologies" onClick={closeMenu}>
               Tecnologias
             </NavLink>
+
             <NavLink href="#about" onClick={closeMenu}>
               Sobre mim
             </NavLink>
+
             <NavLink href="#career" onClick={closeMenu}>
               Minha Jornada
             </NavLink>

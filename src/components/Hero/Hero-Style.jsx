@@ -4,11 +4,16 @@ import { media } from "../../styles/media";
 import heroBg from "../../assets/heroBg.png";
 
 export const HeroContainer = styled.section`
-  height: 100vh;
+  flex: 1;
+  min-height: 0;
+
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
   gap: ${pxToRem(32)};
 
   background-image: url(${heroBg});
@@ -23,7 +28,7 @@ export const HeroContainer = styled.section`
   `}
 
   ${media.desktop`
-    padding: 30vh ${pxToRem(60)};
+    padding: 20vh ${pxToRem(60)};
   `}
 `;
 
@@ -43,6 +48,7 @@ export const Title = styled.h1`
 
 export const Name = styled.span`
   display: inline-block;
+
   background: linear-gradient(90deg, #7b61ff, #2dd4bf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -50,17 +56,15 @@ export const Name = styled.span`
   ${media.tablet`
     display: inline;
   `}
-
-  ${media.desktop`
-    font-size: inline;
-  `}
 `;
 
 export const Role = styled.span`
   display: block;
+
   font-size: ${pxToRem(20)};
   font-weight: 500;
   color: #9aa4b2;
+
   margin-top: ${pxToRem(8)};
 
   ${media.tablet`
@@ -74,17 +78,19 @@ export const Role = styled.span`
 
 export const Paragraph = styled.p`
   font-size: ${pxToRem(16)};
+
   max-width: 45ch;
   width: 100%;
+
   line-height: 1.6;
 
   ${media.tablet`
     font-size: ${pxToRem(18)};
     margin-left: ${pxToRem(32)};
-    `}
+  `}
 
   ${media.desktop`
-      font-size: ${pxToRem(20)};
-      margin-left: ${pxToRem(32)};
+    font-size: ${pxToRem(20)};
+    margin-left: ${pxToRem(32)};
   `}
 `;
