@@ -64,9 +64,16 @@ export const ProjectsGrid = styled.div`
 
 export const Card = styled.div`
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+
   background: #0f1c2e;
+
   padding: ${pxToRem(16)};
+
   border-radius: ${pxToRem(20)} 0 ${pxToRem(20)} 0;
+
   overflow: hidden;
 
   border: ${({ featured }) =>
@@ -88,14 +95,17 @@ export const Card = styled.div`
         content: "";
         position: absolute;
         inset: -2px;
+
         background: linear-gradient(
           90deg,
           #00ffff,
           #7b61ff,
           #00ffff
         );
+
         background-size: 300% 300%;
         animation: neonBorder 4s linear infinite;
+
         z-index: 0;
       }
 
@@ -103,8 +113,11 @@ export const Card = styled.div`
         content: "";
         position: absolute;
         inset: 2px;
+
         background: #0f1c2e;
+
         border-radius: ${pxToRem(18)} 0 ${pxToRem(18)} 0;
+
         z-index: 1;
       }
 
@@ -129,12 +142,9 @@ export const NewTag = styled.div`
   position: absolute;
   top: 12px;
   right: 12px;
-
   padding: 6px 12px;
   border-radius: 999px;
-
   background: linear-gradient(90deg, #00ffff, #7b61ff);
-
   color: white;
   font-size: 12px;
   font-weight: 700;
@@ -174,11 +184,12 @@ export const ProjectButtons = styled.div`
   flex-direction: column;
   align-items: stretch;
   gap: ${pxToRem(12)};
+  margin-top: auto;
 
-  @media (min-width: 1441px) {
+  ${media.desktop`
     flex-direction: row;
     align-items: center;
-  }
+  `}
 `;
 
 export const PaginationTabs = styled.div`
