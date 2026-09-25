@@ -263,7 +263,7 @@ export function Hero() {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.8,
+            duration: 1,
             stagger: 0.025,
             ease: "power3.out",
           },
