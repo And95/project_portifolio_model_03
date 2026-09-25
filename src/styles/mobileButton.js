@@ -7,17 +7,23 @@ export const HamburgerButton = styled.button`
   flex-direction: column;
   justify-content: space-between;
 
-  width: ${pxToRem(32)};
-  height: ${pxToRem(24)};
+  width: ${pxToRem(42)};
+  height: ${pxToRem(42)};
 
-  background: none;
-  border: none;
+  padding: ${pxToRem(9)};
+
+  background: rgba(11, 23, 40, 0.85);
+  border: 1px solid rgba(123, 97, 255, 0.25);
+  border-radius: ${pxToRem(10)};
+
   cursor: pointer;
 
   span {
     width: 100%;
     height: 3px;
+
     background: linear-gradient(90deg, #7b61ff, #2dd4bf);
+
     border-radius: 2px;
   }
 
@@ -31,6 +37,8 @@ export const MobileMenu = styled.nav`
   top: 0;
   right: 0;
 
+  z-index: 1001;
+
   height: 100vh;
   width: 75vw;
 
@@ -38,8 +46,9 @@ export const MobileMenu = styled.nav`
 
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
+
   padding-top: ${pxToRem(80)};
 
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
