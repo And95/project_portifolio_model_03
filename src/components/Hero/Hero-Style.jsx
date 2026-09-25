@@ -93,4 +93,12 @@ export const Paragraph = styled.p`
     font-size: ${pxToRem(20)};
     margin-left: ${pxToRem(32)};
   `}
+
+  span {
+    display: inline;
+  }
+
+  .description-line {
+    display: inline;
+  }
 `;

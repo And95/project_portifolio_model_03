@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+
 import { HeroContainer, Paragraph, Title, Name, Role } from "./Hero-Style";
+
 import { Button } from "../Style-Button";
 
 gsap.registerPlugin(SplitText);
@@ -33,20 +35,82 @@ export function Hero() {
         type: "words",
       });
 
-      // Parágrafo — palavra por palavra
+      /*
+       * PARÁGRAFO
+       *
+       * O parágrafo inteiro é dividido em palavras.
+       *
+       * Isso é importante porque o navegador continua
+       * responsável pela quebra natural das linhas.
+       *
+       * Assim "utilizando JavaScript" continua sendo
+       * um fluxo normal do texto.
+       */
       const paragraphSplit = new SplitText(paragraphRef.current, {
         type: "words",
       });
 
       /*
        * ==========================================
-       * PARÁGRAFO — PALAVRAS EM ORDEM ALEATÓRIA
+       * IDENTIFICAÇÃO DAS PALAVRAS
        * ==========================================
        */
 
-      const shuffledWords = [...paragraphSplit.words].sort(
-        () => Math.random() - 0.5,
+      const words = paragraphSplit.words;
+
+      /*
+       * "JavaScript" marca o início da parte de
+       * tecnologias.
+       */
+      const skillsStartIndex = words.findIndex((word) =>
+        word.textContent.trim().startsWith("JavaScript"),
       );
+
+      /*
+       * Caso JavaScript seja encontrado:
+       *
+       * descriptionWords = tudo antes de JavaScript
+       * skillsWords      = JavaScript em diante
+       */
+      const descriptionWords =
+        skillsStartIndex >= 0 ? words.slice(0, skillsStartIndex) : words;
+
+      const skillsWords =
+        skillsStartIndex >= 0 ? words.slice(skillsStartIndex) : [];
+
+      /*
+       * ==========================================
+       * AGRUPAMENTO DAS LINHAS
+       * ==========================================
+       *
+       * O SplitText divide o texto em palavras,
+       * mas NÃO altera a quebra visual das linhas.
+       *
+       * Nós usamos a posição vertical real de cada
+       * palavra para descobrir quais palavras estão
+       * na mesma linha.
+       */
+
+      const linesMap = new Map();
+
+      descriptionWords.forEach((word) => {
+        const top = Math.round(word.getBoundingClientRect().top);
+
+        if (!linesMap.has(top)) {
+          linesMap.set(top, []);
+        }
+
+        linesMap.get(top).push(word);
+      });
+
+      /*
+       * Converte o Map em array ordenado.
+       *
+       * Cada item representa uma linha.
+       */
+      const descriptionLines = Array.from(linesMap.entries())
+        .sort(([topA], [topB]) => topA - topB)
+        .map(([, lineWords]) => lineWords);
 
       /*
        * ==========================================
@@ -62,12 +126,11 @@ export function Hero() {
       });
 
       /*
-       * NOME
+       * André Gonzaga
        *
-       * Não usamos SplitText aqui porque o Name
-       * utiliza gradiente com background-clip.
+       * Não usamos SplitText para preservar
+       * completamente o gradiente.
        */
-
       gsap.set(nameRef.current, {
         opacity: 0,
         y: 25,
@@ -82,8 +145,23 @@ export function Hero() {
         filter: "blur(6px)",
       });
 
-      // Parágrafo
-      gsap.set(paragraphSplit.words, {
+      /*
+       * Descrição
+       *
+       * Todas as palavras começam invisíveis.
+       */
+      gsap.set(descriptionWords, {
+        opacity: 0,
+        y: 15,
+        filter: "blur(5px)",
+      });
+
+      /*
+       * Skills
+       *
+       * JavaScript, TypeScript, React...
+       */
+      gsap.set(skillsWords, {
         opacity: 0,
         y: 10,
       });
@@ -107,7 +185,9 @@ export function Hero() {
       });
 
       /*
+       * ==========================================
        * OLÁ, EU SOU
+       * ==========================================
        *
        * Letra por letra
        */
@@ -122,10 +202,13 @@ export function Hero() {
       });
 
       /*
+       * ==========================================
        * ANDRÉ GONZAGA
+       * ==========================================
        *
-       * Mantemos o nome como uma unidade para
-       * preservar o gradiente original.
+       * Unidade única.
+       *
+       * O gradiente permanece contínuo.
        */
 
       timeline.to(
@@ -142,9 +225,11 @@ export function Hero() {
       );
 
       /*
+       * ==========================================
        * ENGENHEIRO DE SOFTWARE
+       * ==========================================
        *
-       * Palavra por palavra
+       * Palavra por palavra.
        */
 
       timeline.to(
@@ -160,28 +245,63 @@ export function Hero() {
       );
 
       /*
-       * PARÁGRAFO
+       * ==========================================
+       * DESCRIÇÃO
+       * ==========================================
        *
-       * As palavras aparecem em ordem aleatória,
-       * mas cada palavra permanece inteira.
+       * Linha por linha.
+       *
+       * Cada linha contém suas próprias palavras,
+       * mas visualmente continua sendo um único
+       * parágrafo.
+       */
+
+      descriptionLines.forEach((lineWords, index) => {
+        timeline.to(
+          lineWords,
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+            stagger: 0.025,
+            ease: "power3.out",
+          },
+          index === 0 ? "-=0.15" : "-=0.25",
+        );
+      });
+
+      /*
+       * ==========================================
+       * SKILLS
+       * ==========================================
+       *
+       * JavaScript
+       * TypeScript
+       * React
+       * Next.js
+       * Node.js
+       * NestJS
+       *
+       * Palavra por palavra.
        */
 
       timeline.to(
-        shuffledWords,
+        skillsWords,
         {
           opacity: 1,
           y: 0,
-          duration: 0.45,
-          stagger: {
-            each: 0.08,
-          },
+          duration: 1.4,
+          stagger: 0.4,
           ease: "power2.out",
         },
-        "-=0.15",
+        "-=0.1",
       );
 
       /*
+       * ==========================================
        * BOTÃO
+       * ==========================================
        */
 
       timeline.to(
@@ -190,6 +310,7 @@ export function Hero() {
           opacity: 1,
           y: 0,
           duration: 0.6,
+          ease: "power3.out",
         },
         "-=0.15",
       );
