@@ -29,9 +29,10 @@ const ProjectsData = [
     id: 3,
     title: "Project Sales Dashboard",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
+      "Dashboard de vendas desenvolvido em React e TypeScript, com autenticação de usuários, gerenciamento de leads, perfil, indicadores comerciais e visualização de dados.",
     image: project3,
-    link: "https://pj-salesdashboardbyag.vercel.app/cadastro",
+    link: "https://pj-salesdashboardbyag.vercel.app",
+    cadastroLink: "https://pj-salesdashboardbyag.vercel.app/cadastro",
   },
   {
     id: 4,

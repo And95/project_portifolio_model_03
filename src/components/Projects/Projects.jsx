@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import {
   Section,
   Title,
@@ -14,14 +13,12 @@ import {
   NewTag,
   ProjectButtons,
 } from "./Projects-Style";
-
 import { Button } from "../Style-Button";
 import ProjectsData from "../Projects/Projects-Data";
 
 export function Projects() {
   const [page, setPage] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-
   const projectsPerPage = 3;
   const start = (page - 1) * projectsPerPage;
   const visibleProjects = ProjectsData.slice(start, start + projectsPerPage);
@@ -33,15 +30,12 @@ export function Projects() {
     };
 
     handleResize();
-
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handlePageChange = (newPage) => {
     setPage(newPage);
-
     const section = document.getElementById("projects");
 
     if (section) {
@@ -59,14 +53,13 @@ export function Projects() {
 
   return (
     <ProjectContainer id="projects">
+      {" "}
       <Title>Projetos</Title>
-
       <Section>
         <ProjectsGrid>
           {projectsToRender.map((project) => (
             <Card key={project.id} featured={project.id <= 2}>
               {project.id <= 2 && <NewTag>NEW</NewTag>}
-
               <CardImage src={project.image} alt={project.title} />
               <CardTitle>{project.title}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
@@ -90,6 +83,18 @@ export function Projects() {
                     aria-label={`Abrir área administrativa ${project.title} em nova aba`}
                   >
                     Administrativo
+                  </Button>
+                )}
+
+                {project.cadastroLink && (
+                  <Button
+                    small
+                    href={project.cadastroLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Abrir cadastro do projeto ${project.title} em nova aba`}
+                  >
+                    Cadastro
                   </Button>
                 )}
               </ProjectButtons>
