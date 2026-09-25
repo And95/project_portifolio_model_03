@@ -12,7 +12,7 @@ const ProjectsData = [
     id: 1,
     title: "Project 3D Agency",
     description:
-      "Projeto desenvolvido para praticar animações e efeitos visuais",
+      "Site de agência de desenvolvimento criativo, com experiências digitais interativas e responsivas. Inclui demonstrações visuais inspiradas em Pringles e Stranger Things, explorando animações, efeitos 3D, transições e interações.",
     image: project1,
     link: "https://pj-3d-agencybyag.vercel.app",
   },
@@ -38,7 +38,7 @@ const ProjectsData = [
     id: 4,
     title: "Project Architecture",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
+      "Aplicação web multipágina desenvolvida com frontend e backend integrados, com suporte à alternância de idioma entre português e inglês. Projeto desenvolvido com foco em arquitetura, navegação, responsividade e experiência do usuário.",
     image: project4,
     link: "https://pj-architecturebyag.vercel.app",
   },
@@ -46,7 +46,7 @@ const ProjectsData = [
     id: 5,
     title: "Project Bikcraft",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Origamid.",
+      "Site comercial responsivo para bicicletas elétricas, com catálogo de produtos, personalização de modelos, planos de seguro, páginas de vendas e contato. Projeto desenvolvido com foco em experiência do usuário, conversão e apresentação de produtos.",
     image: project5,
     link: "https://pj-bikcraftorigamidbyag.vercel.app",
   },
@@ -54,7 +54,7 @@ const ProjectsData = [
     id: 6,
     title: "Project Task Manager",
     description:
-      "Projeto desenvolvido com base no design proposto pelo curso da Escola DNC.",
+      "Aplicação web moderna para gerenciamento de tarefas, desenvolvida com JavaScript e foco em organização, produtividade e experiência do usuário.",
     image: project6,
     link: "https://pj-taskmanagerjsbyag.netlify.app",
   },
